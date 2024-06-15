@@ -23,10 +23,9 @@ const helmet = require('helmet');
 const userRoutes = require('./routes/user')
 const campgroundRoutes = require('./routes/campground');
 const reviewRoutes = require('./routes/reviews');
-const { name } = require("tar/lib/types.js");
+
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
-// mongoose.connect(dbUrl)
 
 // const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 mongoose.connect(dbUrl);
@@ -131,11 +130,6 @@ app.use((req, res, next) => {
   next();
 })
 
-app.get('/fakeUser', async (req, res) => {
-  const user = new User({ email: 'harsh@gmail.com', username: 'harsh' });
-  const newUser = await User.register(user, 'harsh123');
-  res.send(newUser);
-})
 
 
 

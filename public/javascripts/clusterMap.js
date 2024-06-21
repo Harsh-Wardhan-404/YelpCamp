@@ -3,7 +3,8 @@ const map = new mapboxgl.Map({
   container: 'cluster-map',
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
   style: 'mapbox://styles/mapbox/light-v11',
-  center: [-103.5917, 40.6699],
+  center: [77.998425, 23.042582],
+  //23.042582, 77.998425
   zoom: 3
 });
 
@@ -105,8 +106,8 @@ map.on('load', () => {
   // description HTML from its properties.
   map.on('click', 'unclustered-point', (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
-    const {popUpMarkup} = e.features[0].properties.popUpMarkup;
-    
+    const { popUpMarkup } = e.features[0].properties.popUpMarkup;
+
 
     // Ensure that if the map is zoomed out such that
     // multiple copies of the feature are visible, the

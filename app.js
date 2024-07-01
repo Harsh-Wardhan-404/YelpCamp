@@ -92,6 +92,7 @@ const styleSrcUrls = [
   "https://fonts.googleapis.com/",
   "https://use.fontawesome.com/",
   "https://cdn.jsdelivr.net",
+  "https://cdnjs.cloudflare.com/",
 ];
 const connectSrcUrls = [
   "https://api.mapbox.com/",
@@ -115,6 +116,8 @@ app.use(
         "data:",
         "https://res.cloudinary.com/dyyeuhnfn/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
         "https://images.unsplash.com/",
+        "https://cdn-icons-png.flaticon.com",
+        "https://cdn.iconscout.com",
       ],
       fontSrc: ["'self'", ...fontSrcUrls],
     },

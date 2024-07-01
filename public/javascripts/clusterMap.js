@@ -2,11 +2,21 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
   container: 'cluster-map',
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-  style: 'mapbox://styles/mapbox/light-v11',
+  style: 'mapbox://styles/mapbox/dark-v11',
   center: [77.998425, 23.042582],
   //23.042582, 77.998425
   zoom: 3
 });
+
+map.on('style.load', () => {
+  map.setConfigProperty('basemap', 'lightPreset', 'dusk');
+});
+
+// map.addSource('dem', {
+//   type: 'raster-dem',
+//   url: 'mapbox://mapbox.mapbox-terrain-dem-v1'
+// });
+
 
 map.addControl(new mapboxgl.NavigationControl());
 
@@ -80,6 +90,12 @@ map.on('load', () => {
       'circle-stroke-color': '#fff'
     }
   });
+
+  // map.addLayer({
+  //   id: 'hillshading',
+  //   source: 'dem',
+  //   type: 'hillshade'
+  // });
 
   // inspect a cluster on click
   map.on('click', 'clusters', (e) => {
